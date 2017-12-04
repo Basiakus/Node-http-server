@@ -10,6 +10,7 @@ server.on('request', function(request, response) {
 
 	fs.readFile('./index.html', function(err, html) {
 	    if (err) throw err; 
+	    response.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
 	    response.write(html);
 	  	response.end();
 	 });	 	
@@ -17,7 +18,7 @@ server.on('request', function(request, response) {
 		response.statusCode = 404;
 		fs.readFile('./fox.jpg', function(err, img) {
 			var imagedata = new Buffer(img).toString('base64');
-			response.write('<h1>...Nie połączyłeś się!</h1>');
+			response.write('<h1>.ssssssssssss..Nie połączyłeś się!</h1>');
 			response.write("<img src='data:fox.jpg;base64,"+imagedata+"'/>");
     		response.end();
 		});
